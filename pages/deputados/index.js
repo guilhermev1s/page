@@ -1,16 +1,19 @@
 
+import Cabecalho from '@/components/Cabecalho'
 import Pagina from '@/components/Pagina'
+import Rodape from '@/components/Rodape'
 import apiDeputados from '@/services/apiDeputados'
 import Link from 'next/link'
 import React from 'react'
 import { Card, Carousel, Col, Row } from 'react-bootstrap'
 
+
+
 const index = ({ deputados }) => {
   return (
     <>
-        
-        <Pagina titulo="Camara dos deputados">
-        <Carousel>
+    <Cabecalho />
+         <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -50,7 +53,7 @@ const index = ({ deputados }) => {
       </Carousel.Item>
     </Carousel>
     
-        <Row md={4}>
+        <Row md={6}>
                 {deputados.map(item => (
                     <Col>
                         <Card>
@@ -65,10 +68,7 @@ const index = ({ deputados }) => {
                     </Col>
                 ))}
             </Row>
-
-
-        </Pagina>
-    
+            <Rodape />
     </>
   )
 }
