@@ -6,8 +6,8 @@ const Cabecalho = () => {
 
   return (
     <Navbar bg="dark" expand="lg">
-      <Container fluid>
-        <Navbar.Brand href="#" >Pagina Inicial</Navbar.Brand>
+      <Container fluid >
+        <Navbar.Brand href="#" className='text-white' >Pagina Inicial</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -16,16 +16,12 @@ const Cabecalho = () => {
             navbarScroll
            
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
+
+            <NavDropdown title="Link" className='text-white' id="navbarScrollingDropdown">
+              <NavDropdown.Item href="C:\page\pages\deputados\dep.js" >Deputados</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">
-                Something else here
+                Despesas
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

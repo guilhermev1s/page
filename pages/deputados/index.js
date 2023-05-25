@@ -1,13 +1,7 @@
-
 import Cabecalho from '@/components/Cabecalho'
-import Pagina from '@/components/Pagina'
 import Rodape from '@/components/Rodape'
-import apiDeputados from '@/services/apiDeputados'
-import Link from 'next/link'
 import React from 'react'
 import { Card, Carousel, Col, Row } from 'react-bootstrap'
-
-
 
 const index = ({ deputados }) => {
   return (
@@ -53,21 +47,7 @@ const index = ({ deputados }) => {
       </Carousel.Item>
     </Carousel>
     
-        <Row md={6}>
-                {deputados.map(item => (
-                    <Col>
-                        <Card>
-                            <Card.Img variant="top" src={item.urlFoto} />
-                            <Card.Body>
-                                <Card.Title>{item.nome}</Card.Title>
-                                <p>Partido: {item.siglaPartido}</p>
-                                <p>UF: {item.siglaUf}</p>
-                                <Link className='btn btn-info' href={'/deputados/' + item.id}>Detalhes</Link>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
+        
             <Rodape />
     </>
   )
@@ -75,15 +55,3 @@ const index = ({ deputados }) => {
 
 export default index
 
-export async function getServerSideProps(context) {
-
-    
-
-    const resultado = await apiDeputados.get('/deputados/')
-    const deputados = resultado.data.dados
-
-    return {
-        props: { deputados },
-    
-    }
-}
