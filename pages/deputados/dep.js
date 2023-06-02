@@ -2,9 +2,11 @@ import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import apiDeputados from '@/services/apiDeputados'
 import Link from 'next/link'
+import Pagina from '@/components/Pagina'
 
 const dep = ({ deputados }) => {
   return (
+    <Pagina titulo="Deputados">
     <Row md={6}>
     {deputados.map(item => (
         <Col>
@@ -20,6 +22,7 @@ const dep = ({ deputados }) => {
         </Col>
     ))}
 </Row>
+</Pagina>
   )
 }
 

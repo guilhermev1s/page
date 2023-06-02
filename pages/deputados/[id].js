@@ -18,7 +18,7 @@ const Detalhes = ({ deputado, despesas, profissoes }) => {
               <Card.Text>UF Partido: {deputado.ultimoStatus.siglaUf}</Card.Text>
             </Card.Body>
           </Card>
-          <Link href='/deputados/'>
+          <Link href='/deputados/dep/'>
             <Button variant='success'>Voltar</Button>
           </Link>
         </Col>
