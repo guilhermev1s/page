@@ -15,14 +15,6 @@ const Cabecalho = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
            
-          >
-
-            <NavDropdown title="Link" className='text-white' id="navbarScrollingDropdown">
-              <NavDropdown.Item href="C:\page\pages\deputados\dep.js" >Deputados</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Despesas
-              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
