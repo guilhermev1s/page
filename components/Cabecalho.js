@@ -7,15 +7,14 @@ const Cabecalho = () => {
   return (
     <Navbar bg="dark" expand="lg">
       <Container fluid >
-        <Navbar.Brand href="#" className='text-white' >Pagina Inicial</Navbar.Brand>
+        <Navbar.Brand href="/deputados/" className='text-white' >Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0 "
             style={{ maxHeight: '100px' }}
             navbarScroll
-           
-            </NavDropdown>
+          >
           </Nav>
           <Form className="d-flex">
             <Form.Control
