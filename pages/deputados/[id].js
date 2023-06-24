@@ -72,6 +72,7 @@ export async function getServerSideProps(context) {
 
   const prof = await apiDeputados.get('/deputados/' + id + '/profissoes')
   const profissoes = prof.data.dados
+  
 
   return {
     props: { despesas, deputado, profissoes },

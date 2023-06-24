@@ -17,14 +17,7 @@ const Cabecalho = () => {
           >
 
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Pesquisar</Button>
-          </Form>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
