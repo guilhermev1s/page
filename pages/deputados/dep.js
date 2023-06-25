@@ -1,63 +1,129 @@
-import React from 'react'
-import { Card, Col, Container, Row, Pagination } from 'react-bootstrap'
-import apiDeputados from '@/services/apiDeputados'
-import Link from 'next/link'
-import Cabecalho from '@/components/Cabecalho'
+import React, { useEffect, useState } from "react";
+import Pagina from "../../components/Pagina";
+import { Col, Row, Card, Form, Button, Pagination } from "react-bootstrap";
+import apiDeputados from "../../services/apiDeputados";
+import Link from "next/link";
+import Cartoon from "@/components/Cartoon";
 
-const dep = ({ deputados }) => {
+const Index = ({ deputados }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(18);
+
+  const filteredDeputados = deputados.filter((item) =>
+    item.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredDeputados.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    console.log("Termo de pesquisa:", searchTerm);
+  };
+
+  function paginacao() {
+    const totalPages = Math.ceil(filteredDeputados.length / itemsPerPage);
+    const pageNumbers = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+
+    return (
+      <Pagination>
+        {currentPage != 1 ? (
+          <>
+            <Pagination.First onClick={() => setCurrentPage(1)} />
+            <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
+          </>
+        ) : (
+          ""
+        )}
+
+        {pageNumbers.map((number) => (
+          <Pagination.Item
+            key={number}
+            active={number === currentPage}
+            onClick={() => setCurrentPage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        ))}
+
+        {currentPage != totalPages ? (
+          <>
+            <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
+            <Pagination.Last onClick={() => setCurrentPage(totalPages)} />
+          </>
+        ) : (
+          ""
+        )}
+      </Pagination>
+    );
+  }
+
   return (
-    <>
-    <Cabecalho />
-    <Container className='mb-5 bg-dark' >
-    <Row md={6}>
-    {deputados.map(item => (
-        <Col>
-            <Card>
-                <Card.Img variant="top" src={item.urlFoto} />
-                <Card.Body>
-                    <Card.Title>{item.nome}</Card.Title>
-                    <p>Partido: {item.siglaPartido}</p>
-                    <p>UF: {item.siglaUf}</p>
-                    <Link className='btn btn-info' href={'/deputados/' + item.id}>Detalhes</Link>
-                </Card.Body>
-            </Card>
-        </Col>
-    ))}
-</Row> 
+    <Pagina titulo="Deputados">
+      <Card border="success" style={{ width: "100%", marginBottom: 20 }}>
+        <Form className="d-flex" onSubmit={handleSearch}>
+          <Form.Control
+            type="search"
+            placeholder="Pesquisar"
+            className="me-1"
+            aria-label="Pesquisar"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              outline: "none",
+            }}
+          />
+        </Form>
+      </Card>
+      <Card>
+        <Card.Body>
+          <Row>
+            {currentItems.map((item) => (
+              <Col key={item.id} className="my-3" md={3}>
+                <Link
+                  href={`/deputados/${item.id}`}
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    textAlign: "center",
+                  }}
+                >
+                
+                  <Cartoon>
+                    <Card.Img variant="top" src={item.urlFoto} />
+                    <Card.Body>
+                      <Card.Title>{item.nome}</Card.Title>
+                    </Card.Body>
+                  </Cartoon>
+                    </Link>
+              </Col>
+            ))}
+          </Row>
+        </Card.Body>
+      </Card>
+      <br />
+      <div className="paginacao">{paginacao()}</div>
+    </Pagina>
+  );
+};
 
-<h1></h1>
-
-<Pagination>
-      <Pagination.First />
-      <Pagination.Prev />
-      <Pagination.Item>{1}</Pagination.Item>
-      <Pagination.Ellipsis />
-
-      <Pagination.Item>{10}</Pagination.Item>
-      <Pagination.Item>{11}</Pagination.Item>
-      <Pagination.Item active>{12}</Pagination.Item>
-      <Pagination.Item>{13}</Pagination.Item>
-      <Pagination.Item disabled>{14}</Pagination.Item>
-
-      <Pagination.Ellipsis />
-      <Pagination.Item>{20}</Pagination.Item>
-      <Pagination.Next />
-      <Pagination.Last />
-    </Pagination>
-</Container>
-</>
-  )
-}
-
-export default dep
+export default Index;
 
 export async function getServerSideProps(context) {
-
-    const resultado = await apiDeputados.get('/deputados/')
-    const deputados = resultado.data.dados
-
-    return {
-        props: { deputados },
-    
-    }
+  const resultado = await apiDeputados.get(`/deputados?nome=&ordem=ASC&ordenarPor=nome`);
+  const deputados = await resultado.data.dados;
+  return {
+    props: { deputados },
+  };
 }
