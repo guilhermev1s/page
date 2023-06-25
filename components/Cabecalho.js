@@ -8,6 +8,9 @@ const Cabecalho = () => {
     <Navbar bg="dark" expand="lg">
       <Container fluid >
         <Navbar.Brand href="/deputados/" className='text-white' >Home</Navbar.Brand>
+        <Navbar.Brand href="/votacoes/" className='text-white' >Votações</Navbar.Brand>
+        <Navbar.Brand href="/eventos/" className='text-white' >Eventos</Navbar.Brand>
+        <Navbar.Brand href="/partidos/" className='text-white' >Partidos</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
