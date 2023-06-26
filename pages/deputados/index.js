@@ -2,7 +2,7 @@ import Cabecalho from '@/components/Cabecalho'
 import Rodape from '@/components/Rodape'
 import Link from 'next/link'
 import React from 'react'
-import { Card, Carousel, Col, Row } from 'react-bootstrap'
+import { Badge, Card, Carousel, Col, ListGroup, Row } from 'react-bootstrap'
 
 const index = ({ deputados }) => {
   return (
@@ -40,7 +40,231 @@ const index = ({ deputados }) => {
         />
     </Carousel>
     
-    
+    <h1>Partidos</h1>
+    <ListGroup as="ol" numbered>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">PL</div>
+        </div>
+        <Badge bg="danger" pill>
+          99
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Fed. PT/PC do B/PV</div>
+        </div>
+        <Badge bg="danger" pill>
+          80
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">UB</div>
+        </div>
+        <Badge bg="danger" pill>
+          59
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">PP</div>
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+      <ListGroup.Item
+        as="li"
+        className="d-flex justify-content-between align-items-start"
+      >
+        <div className="ms-2 me-auto">
+          <div className="fw-bold">Subheading</div>
+          Cras justo odio
+        </div>
+        <Badge bg="primary" pill>
+          14
+        </Badge>
+      </ListGroup.Item>
+    </ListGroup>
         
             <Rodape />
     </>
